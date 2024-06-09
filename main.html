@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Principale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="section background-section" id="home">
+        <div class="content">
+            <div class="first-name">Luca</div>
+            <div class="last-name">Devaux</div>
+        </div>
+    </div>
+    <div class="section custom-shape-divider" id="about">
+        <div class="container">
+            <div class="left-box">
+                <h2>Qui je suis</h2>
+                <p>Je m'appelle Luca Devaux. J'ai 18 ans. Je suis en première année d'informatique, et je termine bientôt ma formation. J'adore l'informatique et j'ai soif d'apprendre.
+
+                    Cette année, j'ai travaillé sur de nombreux projets, seuls et en groupe. J'ai exploré différents aspects de l'informatique : développement web, création d'applications, configuration de réseaux. Ces expériences m'ont donné une solide base de compétences.
+                    
+                    J'ai créé ce portfolio pour présenter mes projets et permettre à ceux qui le souhaitent de me contacter. Explorez mes réalisations et n'hésitez pas à me faire part de vos commentaires ou questions.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="right-box">
+                <h3>Compétences</h3>
+                <div class="skills">
+                    <div class="card">
+                        <img src="logo/html.png" class="img" alt="HTML Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/css.png" class="img" alt="CSS Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/js.png" class="img" alt="JavaScript Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/C.png" class="img" alt="C Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/csharp.png" class="img" alt="C# Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/git.png" class="img" alt="Git Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/java.png" class="img" alt="Java Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/python.png" class="img" alt="Python Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="logo/reseau.png" class="img" alt="Network Icon">
+                        <div class="textBox">
+                            <p class="text">5 ans</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section background-section" id="projects">
+        <h2>Mes projets</h2>
+        <div class="project-container">
+            <div class="arrow left-arrow" onclick="prevProject()">&#9664;</div>
+            <div class="project-display">
+                <img src="projet/1.png" alt="Project 1" class="project-image resized-image">
+            </div>
+            <div class="arrow right-arrow" onclick="nextProject()">&#9654;</div>
+        </div>
+    </div>
+    <div class="section background-section" id="contact">
+        <div class="content">
+            <div class="first-name">Contact</div>
+            <div class="last-name">Section</div>
+        </div>
+    </div>
+    <div class="section background-section" id="contact">
+        <div class="content">
+            <div class="first-name">Contact</div>
+            <div class="last-name">Section</div>
+        </div>
+    </div>
+    
+    <div id="pagination">
+        <span class="dot active" data-target="#home"></span>
+        <span class="dot" data-target="#about"></span>
+        <span class="dot" data-target="#contact"></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

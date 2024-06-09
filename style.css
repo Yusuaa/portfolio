@@ -1,0 +1,552 @@
+/* Base styles (already existing in your CSS) */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    overflow: hidden; /* Remove the scrollbar */
+}
+
+.navbar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: top 0.3s;
+}
+
+.navbar a {
+    color: #ADD8E6; /* Light Blue */
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    font-size: 24px;
+}
+
+.navbar a:hover {
+    background: rgba(173, 216, 230, 0.3); /* Light Blue with transparency */
+}
+
+.scroll-dots {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ADD8E6; /* Light Blue */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.dot.active {
+    width: 15px;
+    height: 15px;
+    background-color: #1E90FF; /* Dodger Blue */
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.background-section {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 0;
+}
+
+.background-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the overlay color and transparency */
+    z-index: -2;
+}
+
+.background-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('fondnuit2.jpg'); /* Use the nighttime background image */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+#about.background-section::after {
+    background-image: none;
+}
+
+#contact.background-section::after {
+    background-image: none;
+    background-color: #34495e; /* Use the same background color as the second section */
+}
+
+.custom-shape-divider {
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    background-color: #34495e; /* Dark background to match nighttime theme */
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 20px; /* Add space between the boxes */
+}
+
+.left-box, .right-box {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-box {
+    background-color: #2c3e50; /* Dark Blue */
+    text-align: left;
+}
+
+.right-box {
+    background-color: #34495e; /* Darker Blue */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center cards vertically */
+}
+
+.divider {
+    width: 2px;
+    background-color: #34495e; /* Dark Blue for the divider */
+    height: 100%;
+}
+
+.custom-shape-divider h2, .custom-shape-divider h3 {
+    color: #ecf0f1; /* Light Grey */
+    margin-bottom: 20px;
+}
+
+.custom-shape-divider p {
+    color: #bdc3c7; /* Grey */
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Adjust the gap to ensure even spacing */
+    justify-content: center; /* Center the grid horizontally */
+    padding-left: 10%; /* Add padding to the right side */
+    width: 100%;
+}
+
+.card {
+    width: 120px; /* Adjust the width */
+    height: 140px; /* Further adjust the height */
+    background: #202d3b; /* Dark Blue */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1; /* Light Grey */
+    transition: 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text inside cards */
+}
+
+.img {
+    height: auto; /* Ensure the image maintains its aspect ratio */
+    width: 60px; /* Set a fixed width for the images */
+    max-height: 100%; /* Ensure the image doesn't exceed the card's height */
+    margin: auto;
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.textBox {
+    position: absolute; /* Position the text box absolutely within the card */
+    top: 0; /* Align the top of the text box with the top of the card */
+    left: 0; /* Align the left of the text box with the left of the card */
+    width: 100%; /* Make the text box span the full width of the card */
+    height: 100%; /* Make the text box span the full height of the card */
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap */
+    transition: 0.2s ease-in-out;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background to make text more readable */
+}
+
+.textBox > .text {
+    font-weight: bold;
+}
+
+.card:hover > .textBox {
+    opacity: 1;
+}
+
+.card:hover > .img {
+    filter: blur(7px);
+    animation: anim 3s infinite;
+}
+
+@keyframes anim {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: scale(1.04) rotate(-1deg);
+}
+
+/* Luca Devaux Styling */
+.first-name, .last-name {
+    font-family: 'Lobster', cursive;
+    font-size: 100px; /* Increase the font size */
+    color: #ecf0f1; /* Light Grey */
+}
+
+/* Add color harmony */
+body {
+    background-color: #1a1a1a; /* Dark background to match nighttime theme */
+}
+
+.left-box {
+    background-color: #2c3e50; /* Dark Blue */
+}
+
+.right-box {
+    background-color: #2c3e50; /* Darker Blue */
+}
+
+.card {
+    background: #202d3b; /* Dark Blue */
+}
+
+.navbar a {
+    color: #ADD8E6; /* Light Blue */
+}
+
+.navbar a:hover {
+    background: rgba(173, 216, 230, 0.3); /* Light Blue with transparency */
+}
+/* Ajoutez cette section au style.css pour styliser les points de pagination */
+#pagination {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+    width: 15px;
+    height: 15px;
+}
+.resized-image {
+    width: 80%; /* Ajustez le pourcentage selon vos besoins */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+}
+.project-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: #ffffff; /* Ajustez la couleur si nécessaire */
+    cursor: pointer;
+    user-select: none;
+}
+
+.left-arrow {
+    left: -40px; /* Ajustez cette valeur pour positionner correctement la flèche */
+}
+
+.right-arrow {
+    right: -40px; /* Ajustez cette valeur pour positionner correctement la flèche */
+}
+
+.project-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project-display img {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.project-display img.fade-out {
+    opacity: 0;
+}
+.contact-info {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #1E90FF; /* Couleur Dodger Blue */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1E90FF; /* Couleur Dodger Blue */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #1C86EE; /* Légère variation de Dodger Blue */
+}
+
+/* Media Queries for responsiveness */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar {
+        align-items: center;
+    }
+
+    .navbar a {
+        padding: 10px;
+        font-size: 18px;
+    }
+    .container{
+        padding: 0;
+        margin: 0;
+    }
+    .container p {
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+    } 
+    .custom-shape-divider {
+        padding: 20px;
+    }
+    .container h2 {
+        font-size: 15px;
+        padding: 0;
+        margin: 0;
+    } 
+
+    .left-box, .right-box {
+        width: 100%;
+        padding: 3px;
+
+    }
+    .left-box {
+        background-color: #2c3e50; /* Dark Blue */
+        text-align: left;
+        flex: 2; /* Increase the size of left-box */
+    }
+    .left-box {
+        background-color: #2c3e50; /* Dark Blue */
+        text-align: left;
+        flex: 2; /* Increase the size of left-box */
+    }
+    .skills {
+        padding-left: 0;
+    }
+
+    .card {
+        width: 40px;
+        height: 60px;
+    }
+
+    .first-name, .last-name {
+        font-size: 50px;
+    }
+
+
+    .left-arrow, .right-arrow {
+        top: -25px; /* Position above the image */
+        transform: translateY(0);
+        left: auto;
+        right: auto;
+        font-size: 1.5em;
+    }
+    .left-arrow{
+        margin-right:50px; /* Add margin to separate the arrows */
+    }
+
+    .resized-image {
+        width:80%;
+    }
+
+    .contact-form {
+        width: 90%;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .card {
+        width: 100px;
+        height: 120px;
+    }
+
+    .first-name, .last-name {
+        font-size: 70px;
+    }
+    .container p {
+        font-size: 10px;
+    } 
+    .resized-image {
+        width: 80%;
+    }
+
+    .contact-form {
+        width: 80%;
+    }
+    .left-arrow, .right-arrow {
+        top: -25px; /* Position above the image */
+        transform: translateY(0);
+        left: auto;
+        right: auto;
+        font-size: 1.5em;
+    }
+    .left-arrow{
+        margin-right:50px; /* Add margin to separate the arrows */
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px)and (max-width: 1950px) {
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        width: 120px;
+        height: 140px;
+    }
+
+    .first-name, .last-name {
+        font-size: 100px;
+    }
+
+    .resized-image {
+        width: 80%;
+    }
+
+    .contact-form {
+        width: 60%;
+    }
+    .left-arrow, .right-arrow {
+        top: -25px; /* Position above the image */
+        transform: translateY(0);
+        left: auto;
+        right: auto;
+        font-size: 1.5em;
+    }
+    .left-arrow{
+        margin-right:50px; /* Add margin to separate the arrows */
+    }
+}
