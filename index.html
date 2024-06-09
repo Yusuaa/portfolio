@@ -12,23 +12,24 @@
     <div class="navbar" id="navbar">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
     <div class="section background-section" id="home">
         <div class="content">
-            <div class="first-name">Luca</div>
-            <div class="last-name">Devaux</div>
+            <div class="first-name">Mon Portfolio</div>
+            <div class="last-name">Luca Devaux</div>
         </div>
     </div>
     <div class="section custom-shape-divider" id="about">
         <div class="container">
             <div class="left-box">
                 <h2>Qui je suis</h2>
-                <p>Je m'appelle Luca Devaux. J'ai 18 ans. Je suis en première année d'informatique, et je termine bientôt ma formation. J'adore l'informatique et j'ai soif d'apprendre.
-
-                    Cette année, j'ai travaillé sur de nombreux projets, seuls et en groupe. J'ai exploré différents aspects de l'informatique : développement web, création d'applications, configuration de réseaux. Ces expériences m'ont donné une solide base de compétences.
-                    
-                    J'ai créé ce portfolio pour présenter mes projets et permettre à ceux qui le souhaitent de me contacter. Explorez mes réalisations et n'hésitez pas à me faire part de vos commentaires ou questions.</p>
+                <div class="left-box">
+                    <p>Je m'appelle Luca Devaux. J'ai 18 ans. Je suis en première année d'informatique, et je termine bientôt ma formation.</p>
+                    <p>J'adore l'informatique et j'ai soif d'apprendre. Cette année, j'ai travaillé sur de nombreux projets, seuls et en groupe. J'ai exploré différents aspects de l'informatique : développement web, création d'applications, configuration de réseaux. Ces expériences m'ont donné une solide base de compétences.</p>
+                    <p>J'ai créé ce portfolio pour présenter mes projets et permettre à ceux qui le souhaitent de me contacter. Explorez mes réalisations et n'hésitez pas à me faire part de vos commentaires ou questions.</p>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="right-box">
@@ -37,55 +38,55 @@
                     <div class="card">
                         <img src="logo/html.png" class="img" alt="HTML Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">~ 1-2 ans</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/css.png" class="img" alt="CSS Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">~ 1-2 ans</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/js.png" class="img" alt="JavaScript Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">Récent</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/C.png" class="img" alt="C Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">6 mois</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/csharp.png" class="img" alt="C# Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">6 mois</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/git.png" class="img" alt="Git Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">6 mois</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/java.png" class="img" alt="Java Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">~ 1 ans</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/python.png" class="img" alt="Python Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">~ 2 ans</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="logo/reseau.png" class="img" alt="Network Icon">
                         <div class="textBox">
-                            <p class="text">5 ans</p>
+                            <p class="text">~ 6 mois</p>
                         </div>
                     </div>
                 </div>
@@ -105,19 +106,32 @@
     <div class="section background-section" id="contact">
         <div class="content">
             <div class="first-name">Contact</div>
-            <div class="last-name">Section</div>
-        </div>
-    </div>
-    <div class="section background-section" id="contact">
-        <div class="content">
-            <div class="first-name">Contact</div>
-            <div class="last-name">Section</div>
+            <div class="contact-info">
+                <p>Vous pouvez me contacter via les moyens suivants :</p>
+                <ul>
+                    <li>Email : <a href="mailto:luca.devaux@etu.u-bordeaux.fr">luca.devaux@etu.u-bordeaux.fr</a></li>
+                    <li>Téléphone : +33 6 48 39 95 97</li>
+                </ul>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/meqyyjbz" method="POST">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
         </div>
     </div>
     
     <div id="pagination">
         <span class="dot active" data-target="#home"></span>
         <span class="dot" data-target="#about"></span>
+        <span class="dot" data-target="#projects"></span>
         <span class="dot" data-target="#contact"></span>
     </div>
     <script src="script.js"></script>

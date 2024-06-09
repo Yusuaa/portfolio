@@ -12,6 +12,7 @@ window.addEventListener("scroll", function() {
     }
     lastScrollTop = scrollTop;
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".section");
     const dots = document.querySelectorAll(".dot");
@@ -70,10 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("beforeunload", () => {
         window.scrollTo(0, 0);
     });
+
     // Liste des images de projet
     const projectImages = [
         'projet/1.png',
         'projet/2.png',
+        'projet/3.png',
+        'projet/4.png',
+        'projet/5.png',
     ];
 
     let currentProjectIndex = 0;
@@ -81,7 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fonction pour afficher l'image de projet actuelle
     function displayProject(index) {
         const projectImageElement = document.querySelector('.project-display img');
-        projectImageElement.src = projectImages[index];
+        projectImageElement.classList.add('fade-out');
+        
+        setTimeout(() => {
+            projectImageElement.src = projectImages[index];
+            projectImageElement.classList.remove('fade-out');
+        }, 500); // La durée de l'animation en ms doit correspondre à celle définie dans le CSS
     }
 
     // Fonction pour passer au projet suivant
@@ -97,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initialiser l'affichage avec le premier projet
-    document.addEventListener("DOMContentLoaded", () => {
-        displayProject(currentProjectIndex);
-    });
+    displayProject(currentProjectIndex);
+
+    // Ajoutez les gestionnaires d'événements pour les flèches après le chargement du DOM
+    document.querySelector('.left-arrow').addEventListener('click', prevProject);
+    document.querySelector('.right-arrow').addEventListener('click', nextProject);
 });
-
-
