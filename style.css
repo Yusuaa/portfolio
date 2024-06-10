@@ -305,7 +305,9 @@ body {
 }
 .resized-image {
     width: 80%; /* Ajustez le pourcentage selon vos besoins */
-    height: auto; /* Maintient le ratio d'aspect de l'image */
+    height: 80%; /* Maintient le ratio d'aspect de l'image */
+    padding: 0;
+    margin: 0;
 }
 .project-container {
     position: relative;
@@ -325,11 +327,11 @@ body {
 }
 
 .left-arrow {
-    left: -40px; /* Ajustez cette valeur pour positionner correctement la flèche */
+    left: 100px; /* Ajustez cette valeur pour positionner correctement la flèche */
 }
 
 .right-arrow {
-    right: -40px; /* Ajustez cette valeur pour positionner correctement la flèche */
+    right: 100px; /* Ajustez cette valeur pour positionner correctement la flèche */
 }
 
 .project-display {
@@ -496,7 +498,7 @@ body {
         font-size: 70px;
     }
     .container p {
-        font-size: 10px;
+        font-size: 13px;
     } 
     .resized-image {
         width: 80%;
@@ -518,7 +520,7 @@ body {
 }
 
 /* Desktop Styles */
-@media (min-width: 1024px)and (max-width: 1950px) {
+@media (min-width: 1024px)and (max-width: 1400px) {
     .skills {
         grid-template-columns: repeat(3, 1fr);
     }
